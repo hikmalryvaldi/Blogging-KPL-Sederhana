@@ -8,9 +8,8 @@
 </head>
 
 <body>
-
-
-
+  <h3>buat style nya simple aja ges kaya buat blog sederhana 🐤</h3>
+  <a href="artikel/tambah.php">tambah artikel</a>
 </body>
 
 </html>
