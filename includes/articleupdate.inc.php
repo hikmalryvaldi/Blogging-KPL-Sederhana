@@ -2,7 +2,6 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $penulis = $_POST["penulis"];
   $judul = $_POST["judul"];
-  // $gambar = $_POST["gambar"];
   $isi = $_POST["artikel_text"];
 
   try {

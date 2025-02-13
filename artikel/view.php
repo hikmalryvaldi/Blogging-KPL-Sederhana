@@ -20,6 +20,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
+  <img style="width: 300px;" src="../assets/img/<?= $result[0]["gambar"]; ?>" alt="">
   <h4><?= htmlspecialchars($result[0]["judul"]); ?></h4>
   <p><?= htmlspecialchars($result[0]["artikel_text"]); ?></p>
   <p><?= htmlspecialchars($result[0]["penulis"]); ?></p>
