@@ -1,5 +1,5 @@
 <?php
-
+$id = $_GET["id"];
 require_once "../includes/dbh.inc.php";
 
 $query = "SELECT * FROM articles WHERE id = $id";
