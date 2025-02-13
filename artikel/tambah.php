@@ -60,12 +60,12 @@
 <body>
   <div class="container">
     <h2>Tambah Artikel</h2>
-    <form action="formhandler.inc.php" method="post" enctype="multipart/form-data">
-      <label for="title">Judul Artikel:</label>
-      <input type="text" name="title" required placeholder="Masukkan judul artikel...">
-
+    <form action="articleadd.inc.php" method="post" enctype="multipart/form-data">
       <label for="author">Nama Penulis:</label>
       <input type="text" name="author" required placeholder="Masukkan nama penulis...">
+
+      <label for="title">Judul Artikel:</label>
+      <input type="text" name="title" required placeholder="Masukkan judul artikel...">
 
       <label for="image">Unggah Gambar:</label>
       <input type="file" name="image" accept="image/*">
