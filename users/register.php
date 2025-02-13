@@ -10,6 +10,7 @@
 </head>
 
 <body class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <?php require_once "../includes/header.inc.php"; ?>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">

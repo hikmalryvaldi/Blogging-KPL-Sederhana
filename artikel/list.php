@@ -2,7 +2,7 @@
 
 require_once "../includes/dbh.inc.php";
 
-$query = "SELECT * FROM articles";
+$query = "SELECT * FROM articles ORDER BY created_at DESC";
 
 $stmt = $pdo->prepare($query);
 $stmt->execute();
@@ -20,12 +20,11 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-
   <?php foreach ($result as $data): ?>
-    <p><?= $data["id"]; ?></p>
+    <!-- <p><?= $data["id"]; ?></p> -->
     <a href="view.php?id=<?= $data["id"] ?>"><?= htmlspecialchars($data["judul"]); ?></a>
     <p><?= htmlspecialchars($data["artikel_text"]); ?></p>
-    <p><?= htmlspecialchars($data["penulis"]); ?></p>
+    <!-- <p><?= htmlspecialchars($data["penulis"]); ?></p> -->
     <p><?= htmlspecialchars($data["created_at"]); ?></p>
     <hr>
   <?php endforeach; ?>

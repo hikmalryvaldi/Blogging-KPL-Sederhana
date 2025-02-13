@@ -39,6 +39,8 @@ if (isset($_GET['id'])) {
   <p><?= htmlspecialchars($resultArticle["artikel_text"]); ?></p>
   <p><?= htmlspecialchars($resultArticle["penulis"]); ?></p>
   <p><?= htmlspecialchars($resultArticle["created_at"]); ?></p>
+  <a href="edit.php?id=<?= $resultArticle["id"] ?>">Edit</a>
+  <a href="riwayat_penerbitan.php?id=<?= $resultArticle["id"] ?>">Riwayat</a>
 
   <hr>
 
