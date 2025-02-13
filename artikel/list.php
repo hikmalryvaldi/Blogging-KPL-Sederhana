@@ -30,8 +30,6 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <hr>
   <?php endforeach; ?>
 
-  <!-- komentar -->
-
 </body>
 
 </html>
