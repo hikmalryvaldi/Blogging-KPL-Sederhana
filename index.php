@@ -12,7 +12,7 @@
   <?php require_once "includes/header.inc.php"; ?>
   <h3>lanjutt lagi gess 🐤🐤🐤</h3>
   <a href="artikel/tambah.php">tambah artikel</a>
-  <a href="artikel/list.php">list artikel</a>
+  <a href="artikel/list.php">👉👉list artikel👈👈</a>
   <a href="users/login.php">login</a>
   <a href="users/register.php">register</a>
   <?php require_once "includes/footer.inc.php"; ?>

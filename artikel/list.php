@@ -21,11 +21,14 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
   <?php foreach ($result as $data): ?>
-    <!-- <p><?= $data["id"]; ?></p> -->
-    <a href="view.php?id=<?= $data["id"] ?>"><?= htmlspecialchars($data["judul"]); ?></a>
-    <p><?= htmlspecialchars($data["artikel_text"]); ?></p>
-    <!-- <p><?= htmlspecialchars($data["penulis"]); ?></p> -->
-    <p><?= htmlspecialchars($data["created_at"]); ?></p>
+    <div>
+      <img src="../assets/img/<?= $data["gambar"]; ?>" alt="">
+      <div>
+        <a href="view.php?id=<?= $data["id"] ?>"><?= htmlspecialchars($data["judul"]); ?></a>
+        <p><?= htmlspecialchars($data["artikel_text"]); ?></p>
+        <p><?= htmlspecialchars($data["created_at"]); ?></p>
+      </div>
+    </div>
     <hr>
   <?php endforeach; ?>
 
