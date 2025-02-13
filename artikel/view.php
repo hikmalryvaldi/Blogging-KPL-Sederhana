@@ -2,32 +2,28 @@
 
 require_once "../includes/dbh.inc.php";
 
-$query = "SELECT * FROM articles";
+$query = "SELECT * FROM articles WHERE id = $id";
 
 $stmt = $pdo->prepare($query);
 $stmt->execute();
 
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Article</title>
+  <title>artikel</title>
 </head>
 
 <body>
 
-  <?php foreach ($result as $data): ?>
-    <a href=""><?= $data["judul"]; ?></a>
-    <p><?= $data["artikel_text"]; ?></p>
-    <p><?= $data["penulis"]; ?></p>
-    <p><?= $data["created_at"]; ?></p>
-    <hr>
-  <?php endforeach; ?>
+  <h4><?= htmlspecialchars($result[0]["judul"]); ?></h4>
+  <p><?= htmlspecialchars($result[0]["artikel_text"]); ?></p>
+  <p><?= htmlspecialchars($result[0]["penulis"]); ?></p>
+  <p><?= htmlspecialchars($result[0]["created_at"]); ?></p>
 
 </body>
 

@@ -1,5 +1,4 @@
 <?php
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $penulis = $_POST["penulis"];
   $judul = $_POST["judul"];
