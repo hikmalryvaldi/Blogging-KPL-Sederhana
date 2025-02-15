@@ -21,7 +21,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-<?php require_once "../includes/header.inc.php"; ?>
+  <?php require_once "../includes/header.inc.php"; ?>
   <div class="container my-5">
     <h2 class="mb-5 text-center">All Article</h2>
     <div class="row g-4">

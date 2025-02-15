@@ -10,9 +10,19 @@
 </head>
 
 <body>
+    <?php require_once "../includes/header.inc.php"; ?>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
+                <?php if (isset($_GET["signup"]) && $_GET["signup"] === "success"): ?>
+                    <br>
+                    <p id="notif">Register berhasil, silakan login</p>
+                    <script>
+                        setTimeout(() => {
+                            document.getElementById("notif").style.display = "none";
+                        }, 3000);
+                    </script>
+                <?php endif; ?>
                 <div class="card mt-5">
                     <div class="card-header text-center">
                         <h4>Login</h4>
