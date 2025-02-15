@@ -11,14 +11,32 @@ $stmt->execute();
 $article = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<form action="../includes/articleupdate.inc.php" method="post" enctype="multipart/form-data">
-  <input type="hidden" name="id" value="<?= $article["id"]; ?>">
+<head>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
 
-  <input type="text" name="penulis" value="<?= $article["penulis"]; ?>">
-  <input type="text" name="judul" value="<?= $article["judul"]; ?>">
-  <input type="file" name="gambar">
+<div class="form-container">
+  <form action="../includes/articleupdate.inc.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?= $article["id"]; ?>">
 
-  <textarea name="artikel_text"><?= $article["artikel_text"]; ?></textarea>
+    <label for="penulis">Penulis</label>
+    <input type="text" name="penulis" value="<?= $article["penulis"]; ?>">
 
-  <button type="submit">Update</button>
-</form>
+    <label for="judul">Judul</label>
+    <input type="text" name="judul" value="<?= $article["judul"]; ?>">
+
+    <label for="gambar">Gambar</label>
+    <input type="file" name="gambar">
+
+    <label for="status">Status</label>
+    <select name="status">
+      <option value="public">Public</option>
+      <option value="private">Private</option>
+    </select>
+
+
+    <textarea name="artikel_text"><?= $article["artikel_text"]; ?></textarea>
+
+    <button type="submit">Update</button>
+  </form>
+</div>

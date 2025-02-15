@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $tmpName = $_FILES["gambar"]["tmp_name"];
   $folder = "../assets/img/" . $gambarBaru;
   $isi = $_POST["artikel_text"];
+  $status = $_POST["status"];
 
   try {
     require_once "dbh.inc.php";
@@ -24,19 +25,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gambarLama = $oldArticle["gambar"];
     $gambarSimpan = !empty($gambarBaru) ? $gambarBaru : $gambarLama;
 
-    $queryInsertRevision = "INSERT INTO histories (judul, gambar, artikel_text, articles_id) 
-                            VALUES (:judul, :gambar, :isi, :articles_id)";
+    $queryInsertRevision = "INSERT INTO histories (judul, gambar, artikel_text, articles_id, aksi) 
+                            VALUES (:judul, :gambar, :isi, :articles_id, :status)";
     $stmtInsertRevision = $pdo->prepare($queryInsertRevision);
     $stmtInsertRevision->bindParam(":judul", $oldArticle["judul"]);
-    $stmtInsertRevision->bindParam(":gambar", $gambarSimpan);
+    $stmtInsertRevision->bindParam(":gambar", $oldArticle["gambar"]);
     $stmtInsertRevision->bindParam(":isi", $oldArticle["artikel_text"]);
     $stmtInsertRevision->bindParam(":articles_id", $id);
+    $stmtInsertRevision->bindParam(":status", $oldArticle["aksi"]);
     $stmtInsertRevision->execute();
 
     if (!empty($gambarBaru)) {
-      $queryUpdate = "UPDATE articles SET penulis = :penulis, judul = :judul, gambar = :gambar, artikel_text = :isi WHERE id = :id";
+      $queryUpdate = "UPDATE articles SET penulis = :penulis, judul = :judul, gambar = :gambar, artikel_text = :isi, aksi = :status WHERE id = :id";
     } else {
-      $queryUpdate = "UPDATE articles SET penulis = :penulis, judul = :judul, artikel_text = :isi WHERE id = :id";
+      $queryUpdate = "UPDATE articles SET penulis = :penulis, judul = :judul, artikel_text = :isi, aksi = :status WHERE id = :id";
     }
 
     $stmtUpdate = $pdo->prepare($queryUpdate);
@@ -44,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmtUpdate->bindParam(":judul", $judul);
     $stmtUpdate->bindParam(":isi", $isi);
     $stmtUpdate->bindParam(":id", $id);
+    $stmtUpdate->bindParam(":status", $status);
 
     if (!empty($gambarBaru)) {
       $stmtUpdate->bindParam(":gambar", $gambarBaru);
