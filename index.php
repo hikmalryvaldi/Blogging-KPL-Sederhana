@@ -21,7 +21,23 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <link rel="stylesheet" href="assets/css/index-style.css">
 </head>
 
+
 <body>
+  <header>
+    <h2>Blogging KPL</h2>
+    <nav>
+      <?php if (isset($_SESSION['user_id'])) : ?>
+        <!-- Jika sudah login -->
+        <a href="artikel/list.php">List Artikel</a>
+        <a href="artikel/tambah.php">Tambah Artikel</a>
+        <a href="logout.php">Logout</a>
+      <?php else : ?>
+        <!-- Jika belum login -->
+        <a href="users/login.php">Login</a>
+        <a href="users/register.php">Register</a>
+      <?php endif; ?>
+    </nav>
+  </header>
   <div class="container">
     <div class="page">
       <h1>Blogging KPL</h1>
