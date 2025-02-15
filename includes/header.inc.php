@@ -59,7 +59,7 @@
        <a href="index.php" class="logo-link">
          <img src="../assets/img/contoh logo.png" alt="Logo" class="logo">
        </a>
-       <a href="artikel/list.php">List Artikel</a>
+       <!-- <a href="artikel/list.php">List Artikel</a> -->
      </div>
      <div class="right-section">
        <?php if (isset($_SESSION['username'])): ?>
