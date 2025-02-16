@@ -24,7 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $error["email_taken"] = "Email yang anda masukkan sudah ada";
     }
 
-    session_start();
+    // session_start();
+    require_once "config_session.inc.php";
 
     if ($error) {
       $_SESSION["error"] = $error;

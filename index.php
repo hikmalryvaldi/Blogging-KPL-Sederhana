@@ -1,5 +1,5 @@
 <?php
-
+require_once "includes/config_session.inc.php";
 require_once "includes/dbh.inc.php";
 
 $query = "SELECT * FROM articles WHERE aksi = 'public' ORDER BY created_at DESC";
@@ -30,7 +30,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <!-- Jika sudah login -->
         <a href="artikel/list.php">List Artikel</a>
         <a href="artikel/tambah.php">Tambah Artikel</a>
-        <a href="logout.php">Logout</a>
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        <form id="logout-form" action="includes/logout.inc.php" method="post" style="display: none;">
+        </form>
       <?php else : ?>
         <!-- Jika belum login -->
         <a href="users/login.php">Login</a>
@@ -40,7 +42,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </header>
   <div class="container">
     <div class="page">
-      <h1>Blogging KPL</h1>
+      <h1>Article</h1>
 
       <?php if (!empty($result)) : ?>
         <div class="card-1">

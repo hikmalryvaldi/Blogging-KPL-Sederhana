@@ -1,5 +1,5 @@
 <?php
-
+require_once "../includes/config_session.inc.php";
 require_once "../includes/dbh.inc.php";
 
 $query = "SELECT * FROM articles ORDER BY created_at DESC";
@@ -8,6 +8,8 @@ $stmt = $pdo->prepare($query);
 $stmt->execute();
 
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+echo $_SESSION["user_id"];
 ?>
 
 <!DOCTYPE html>
