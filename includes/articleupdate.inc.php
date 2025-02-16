@@ -9,6 +9,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $isi = $_POST["artikel_text"];
   $status = $_POST["status"];
 
+  // Mengatur ukuran maksimal (contoh: 10MB) dan jenis file yang diizinkan
+  $maxSize = 10 * 1024 * 1024; // 10MB
+  $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+
+  // Memeriksa ukuran file
+  if ($_FILES["gambar"]["size"] > $maxSize) {
+    die("Ukuran file terlalu besar. Maksimal ukuran yang diizinkan adalah 10MB.");
+  }
+
+  // Memeriksa jenis file
+  if (!in_array($_FILES["gambar"]["type"], $allowedTypes)) {
+    die("Jenis file tidak diizinkan. Hanya file JPG, PNG, dan GIF yang diizinkan.");
+  }
+
   try {
     require_once "dbh.inc.php";
 

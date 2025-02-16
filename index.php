@@ -46,7 +46,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       <?php if (!empty($result)) : ?>
         <div class="card-1">
-          <img src="assets/img/<?= $result[0]["gambar"]; ?>" alt="">
+          <a href="artikel/view.php?id=<?= $result[0]["id"] ?>">
+            <img src="assets/img/<?= $result[0]["gambar"]; ?>" alt="">
+          </a>
           <div class="artikel">
             <a href="artikel/view.php?id=<?= $result[0]["id"] ?>">
               <?= htmlspecialchars($result[0]["judul"]); ?>
@@ -59,7 +61,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="card-content">
         <?php foreach (array_slice($result, 1) as $data) : ?>
           <div class="cards">
-            <img src="assets/img/<?= $data["gambar"]; ?>" alt="">
+            <a href="artikel/view.php?id=<?= $data["id"] ?>">
+              <img src="assets/img/<?= $data["gambar"]; ?>" alt="">
+            </a>
             <div class="artikel">
               <a href="artikel/view.php?id=<?= $data["id"] ?>">
                 <?= htmlspecialchars($data["judul"]); ?>
