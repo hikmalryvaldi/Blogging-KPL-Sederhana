@@ -1,6 +1,11 @@
 <?php
 
 require_once "../includes/dbh.inc.php";
+require_once "../includes/config_session.inc.php";
+if (!isset($_SESSION["user_id"])) {
+  header("Location: ../users/login.php"); // Redirect ke halaman login jika belum login
+  exit();
+}
 
 // Mendefinisikan variabel $id dengan nilai dari parameter URL
 if (isset($_GET['id'])) {

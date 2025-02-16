@@ -1,15 +1,20 @@
 <?php
-require_once "../includes/config_session.inc.php";
 require_once "../includes/dbh.inc.php";
-
-$query = "SELECT * FROM articles ORDER BY created_at DESC";
+require_once "../includes/config_session.inc.php";
+if (!isset($_SESSION["user_id"])) {
+  header("Location: ../users/login.php"); // Redirect ke halaman login jika belum login
+  exit();
+}
+$id = $_SESSION["user_id"];
+$query = "SELECT * FROM articles WHERE id = :user_id ORDER BY created_at DESC";
 
 $stmt = $pdo->prepare($query);
+$stmt->bindParam(":user_id", $id);
 $stmt->execute();
 
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-echo $_SESSION["user_id"];
+echo $id;
 ?>
 
 <!DOCTYPE html>
