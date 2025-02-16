@@ -51,8 +51,6 @@
 </style>
 </head>
 
-
-
 <body>
   <nav class="navbar">
     <div class="left-section">
