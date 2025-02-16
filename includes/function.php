@@ -101,3 +101,58 @@ function createUser(object $pdo, string $username, string  $password, string  $e
 {
   setUser($pdo, $username, $password, $email);
 }
+
+
+/* function Login */
+function getUsernameLogin(object $pdo, string $username)
+{
+  $query = "SELECT * FROM users WHERE username = :username;";
+  $stmt = $pdo->prepare($query);
+  $stmt->bindParam(":username", $username);
+  $stmt->execute();
+
+  $result = $stmt->fetch(PDO::FETCH_ASSOC);
+  return $result;
+}
+
+function isUsernameWrong(bool | array $result)
+{
+  if (!$result) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isPassWrong(string $pwd, string $hashedPwd)
+{
+  if (!password_verify($pwd, $hashedPwd)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isInputEmptyLogin(string $username, string  $password)
+{
+  if (empty($username) || empty($password)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function checkLoginError()
+{
+  if ($_SESSION["error"]) {
+    $errors = $_SESSION["error"];
+
+    echo "<br>";
+
+    foreach ($errors as $error) {
+      echo "<p>$error</p>";
+    }
+
+    unset($_SESSION["error"]);
+  }
+}

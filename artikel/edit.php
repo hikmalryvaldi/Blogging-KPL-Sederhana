@@ -1,6 +1,10 @@
 <?php
 require_once "../includes/dbh.inc.php";
-
+require_once "../includes/config_session.inc.php";
+if (!isset($_SESSION["user_id"])) {
+  header("Location: ../users/login.php");
+  exit();
+}
 $id = $_GET["id"];
 
 $query = "SELECT * FROM articles WHERE id = :id";

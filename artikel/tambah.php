@@ -1,3 +1,11 @@
+<?php
+require_once "../includes/dbh.inc.php";
+require_once "../includes/config_session.inc.php";
+if (!isset($_SESSION["user_id"])) {
+  header("Location: ../users/login.php"); // Redirect ke halaman login jika belum login
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
