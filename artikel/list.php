@@ -13,8 +13,6 @@ $stmt->bindParam(":user_id", $id);
 $stmt->execute();
 
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-echo $id;
 ?>
 
 <!DOCTYPE html>
