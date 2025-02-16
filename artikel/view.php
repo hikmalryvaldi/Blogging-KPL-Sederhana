@@ -1,10 +1,19 @@
 <?php
 require_once "../includes/dbh.inc.php";
 require_once "../includes/config_session.inc.php";
-if (!isset($_SESSION["user_id"])) {
-  header("Location: ../users/login.php"); // Redirect ke halaman login jika belum login
-  exit();
+
+if (isset($_SESSION["user_id"])) {
+  $userId = $_SESSION["user_id"];
+  $query = "SELECT * FROM users WHERE id = :user_id";
+
+  $stmt = $pdo->prepare($query);
+  $stmt->bindParam("user_id", $userId);
+  $stmt->execute();
+
+  $user = $stmt->fetch(PDO::FETCH_ASSOC);
+  // echo $user["username"];
 }
+
 // Mendefinisikan variabel $id dengan nilai dari parameter URL
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
@@ -33,6 +42,7 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
+  <?php require_once "../includes/header.inc.php"; ?>
   <div class="container my-5">
     <div class="row justify-content-center">
       <div class="col-md-10 px-4">
@@ -45,14 +55,18 @@ if (isset($_GET['id'])) {
             <h4 class="mb-3"><?= htmlspecialchars($resultArticle["judul"]); ?></h4>
             <p class="mb-4"><?= htmlspecialchars($resultArticle["artikel_text"]); ?></p>
 
-            <div class="text-muted mb-4">
-              <?= htmlspecialchars($resultArticle["penulis"]); ?> | <?= htmlspecialchars($resultArticle["created_at"]); ?>
-            </div>
+            <?php if (isset($user)): ?>
+              <?php if ($user["id"] == $resultArticle["users_id"]): ?>
+                <div class="text-muted mb-4">
+                  <?= htmlspecialchars($resultArticle["penulis"]); ?> | <?= htmlspecialchars($resultArticle["created_at"]); ?>
+                </div>
 
-            <div>
-              <a href="edit.php?id=<?= $resultArticle["id"] ?>" class="btn btn-primary me-2">Edit</a>
-              <a href="riwayat_penerbitan.php?id=<?= $resultArticle["id"] ?>" class="btn btn-info">Riwayat</a>
-            </div>
+                <div>
+                  <a href="edit.php?id=<?= $resultArticle["id"] ?>" class="btn btn-primary me-2">Edit</a>
+                  <a href="riwayat_penerbitan.php?id=<?= $resultArticle["id"] ?>" class="btn btn-info">Riwayat</a>
+                </div>
+              <?php endif; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -81,7 +95,11 @@ if (isset($_GET['id'])) {
           <input type="hidden" name="article_id" value="<?= $id ?>">
 
           <div class="mb-3">
-            <input type="text" name="username" class="form-control" placeholder="Nama Anda">
+            <?php if (isset($_SESSION["user_id"])): ?>
+              <input type="text" name="username" class="form-control" value="<?= $user["username"] ?>" placeholder="Nama Anda">
+            <?php else: ?>
+              <input type="text" name="username" class="form-control" placeholder="Nama Anda">
+            <?php endif; ?>
           </div>
 
           <div class="mb-3">
@@ -93,6 +111,7 @@ if (isset($_GET['id'])) {
       </div>
     </div>
   </div>
+  <?php require_once "../includes/footer.inc.php"; ?>
 </body>
 
 </html>

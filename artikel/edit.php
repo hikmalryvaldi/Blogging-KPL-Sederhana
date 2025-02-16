@@ -18,6 +18,7 @@ $article = $stmt->fetch(PDO::FETCH_ASSOC);
 <head>
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+<?php require_once "../includes/header.inc.php"; ?>
 
 <div class="form-container">
   <form action="../includes/articleupdate.inc.php" method="post" enctype="multipart/form-data">
@@ -44,3 +45,4 @@ $article = $stmt->fetch(PDO::FETCH_ASSOC);
     <button type="submit">Update</button>
   </form>
 </div>
+<?php require_once "../includes/footer.inc.php"; ?>

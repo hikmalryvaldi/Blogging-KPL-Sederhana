@@ -6,7 +6,7 @@ if (!isset($_SESSION["user_id"])) {
   exit();
 }
 $id = $_SESSION["user_id"];
-$query = "SELECT * FROM articles WHERE id = :user_id ORDER BY created_at DESC";
+$query = "SELECT * FROM articles WHERE users_id = :user_id";
 
 $stmt = $pdo->prepare($query);
 $stmt->bindParam(":user_id", $id);

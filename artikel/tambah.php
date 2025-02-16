@@ -35,6 +35,7 @@ if (!isset($_SESSION["user_id"])) {
       <button type="submit">Tambah Artikel</button>
     </form>
   </div>
+  <?php require_once "../includes/footer.inc.php"; ?>
 </body>
 
 </html>
