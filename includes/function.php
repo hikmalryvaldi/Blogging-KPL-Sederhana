@@ -23,9 +23,9 @@ function isEmailInvalid(string $email) // cek jika email tidak valid
 // model
 function get_username(object $pdo, string $username) // ambil username yang sudah ada
 {
-  $query = "SELECT username FROM users WHERE username = :username;";
-  $stmt = $pdo->prepare($query);
-  $stmt->bindParam(":username", $username);
+  $query = "SELECT username FROM users WHERE username = :username;"; // named placholder
+  $stmt = $pdo->prepare($query); //
+  $stmt->bindParam(":username", $username); // raka
   $stmt->execute();
 
   $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -70,10 +70,10 @@ function checkSignUpError()
   if ($_SESSION["error"]) {
     $errors = $_SESSION["error"];
 
-    echo "<br>";
+    // echo "<br>";
 
     foreach ($errors as $error) {
-      echo "<p>$error</p>";
+      echo "<div class='alert alert-danger' role='alert'>$error</div>";
     }
 
     unset($_SESSION["error"]);
@@ -87,7 +87,7 @@ function setUser(object $pdo, string $username, string  $password, string  $emai
 
   $options = [
     "cost" => 12
-  ];
+  ]; // tingkatan = tingkat 12 
 
   $hashedPwd = password_hash($password, PASSWORD_BCRYPT, $options);
 
@@ -117,7 +117,7 @@ function getUsernameLogin(object $pdo, string $username)
 
 function isUsernameWrong(bool | array $result)
 {
-  if (!$result) {
+  if (!$result) { //jika username tidak ada di database
     return true;
   } else {
     return false;
@@ -150,7 +150,7 @@ function checkLoginError()
     echo "<br>";
 
     foreach ($errors as $error) {
-      echo "<p>$error</p>";
+      echo "<div class='alert alert-danger' role='alert'>$error</div>";
     }
 
     unset($_SESSION["error"]);

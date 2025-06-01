@@ -9,6 +9,27 @@ $stmt->execute();
 
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+if (!isset($_SESSION["csrf_token"])) {
+  $_SESSION["csrf_token"] = bin2hex(random_bytes(32)); // Buat token CSRF baru
+}
+
+// Ambil token CSRF untuk digunakan di form
+$csrf_token = $_SESSION["csrf_token"];
+
+
+
+// Log mendaptkan error 
+include_once 'includes/log_helper.php';
+
+set_error_handler(function ($errno, $errstr, $errfile, $errline) {
+    write_log("PHP Error [$errno]: $errstr in $errfile on line $errline", 'ERROR');
+});
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,13 +39,13 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blogging KPL</title>
-  <link rel="stylesheet" href="assets/css/index-style.css">
+  <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 
 <body>
   <header>
-    <h2>Blogging KPL</h2>
+    <h2>KPL</h2>
     <nav>
       <?php if (isset($_SESSION['user_id'])) : ?>
         <!-- Jika sudah login -->
@@ -32,6 +53,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <a href="artikel/tambah.php">Tambah Artikel</a>
         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
         <form id="logout-form" action="includes/logout.inc.php" method="post" style="display: none;">
+          <input type="hidden" name="csrf_token" value="<?= $csrf_token; ?>">
         </form>
       <?php else : ?>
         <!-- Jika belum login -->

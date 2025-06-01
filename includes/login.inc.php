@@ -1,5 +1,20 @@
 <?php
 session_start();
+include_once "log_helper.php"; // Tambahkan ini
+
+// Global error handler
+set_error_handler(function ($errno, $errstr, $errfile, $errline) {
+    write_log("PHP Error [$errno]: $errstr in $errfile on line $errline", 'ERROR');
+});
+set_exception_handler(function ($exception) {
+    write_log("Uncaught Exception: " . $exception->getMessage(), 'ERROR');
+});
+register_shutdown_function(function () {
+    $error = error_get_last();
+    if ($error !== null) {
+        write_log("Fatal Error: {$error['message']} in {$error['file']} on line {$error['line']}", 'ERROR');
+    }
+});
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
@@ -11,17 +26,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $error = [];
 
-        if (isInputEmptyLogin($username, $password)) {
+        if (isInputEmptyLogin($username, password: $password)) {
             $error["empty_input"] = "Tolong masukkan input yang kosong";
+            write_log("Percobaan login gagal: input kosong", 'ERROR');
         }
 
-        $result = getUsernameLogin($pdo, $username);
+        $result = getUsernameLogin($pdo, $username); // hasil array assoc
 
         if (isUsernameWrong($result)) {
-            $error["login_incorrect"] = "Login Gagal";
+            $error["login_incorrect"] = "Username salah atau kosong";
+            write_log("Percobaan login gagal: username '$username' tidak ditemukan", 'ERROR');
         }
+
         if (!isUsernameWrong($result) && isPassWrong($password, $result["pwd"])) {
-            $error["login_incorrect"] = "Login Gagal";
+            $error["login_incorrect"] = "Password salah";
+            write_log("Percobaan login gagal: password salah untuk user '$username'", 'ERROR');
         }
 
         require_once "config_session.inc.php";
@@ -32,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die();
         }
 
+        // Login berhasil
         $newSessionId = session_create_id();
         $sessionId = $newSessionId . "_" . $result["id"];
         session_id($sessionId);
@@ -40,37 +60,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["user_username"] = htmlspecialchars($result["username"]);
         $_SESSION["last_generation"] = time();
 
+        write_log("User '{$result["username"]}' berhasil login", 'INFO');
+
         header("Location: ../index.php");
 
         $pdo = null;
         $stmt = null;
-
         die();
     } catch (PDOException $e) {
+        write_log("PDO Exception saat login: " . $e->getMessage(), 'ERROR');
         die("Query GAGAL: " . $e->getMessage());
     }
 } else {
     header("Location: ../index.php");
     die();
 }
-
-// if (isset($_POST['username']) && isset($_POST['password'])) {
-//     $username = $_POST['username'];
-//     $password = $_POST['password']; // Mengambil input dari form dengan name="password"
-
-//     try {
-//         $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username AND pwd = :pwd");
-//         $stmt->bindParam(':username', $username);
-//         $stmt->bindParam(':pwd', $password); // Bind parameter :pwd dengan nilai $password
-//         $stmt->execute();
-
-//         if ($stmt->rowCount() > 0) {
-//             $_SESSION['username'] = $username;
-//             header("Location: ../index.php"); // ganti dengan halaman tujuan setelah login sukses
-//         } else {
-//             echo "Login gagal, username atau password salah.";
-//         }
-//     } catch (PDOException $e) {
-//         echo "Error: " . $e->getMessage();
-//     }
-// }

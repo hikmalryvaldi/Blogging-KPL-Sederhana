@@ -1,0 +1,69 @@
+A[2025-05-31 14:00:03][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 3
+[2025-05-31 14:00:03][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 4
+[2025-05-31 14:00:03][ERROR]: PHP Error [2]: session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 6
+[2025-05-31 14:00:03][ERROR]: PHP Error [8]: session_start(): Ignoring session_start() because a session is already active (started from C:\laragon\www\tubes_kpl\includes\login.inc.php on line 2) in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 14
+[2025-05-31 14:00:03][ERROR]: PHP Error [2]: session_id(): Session ID cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\login.inc.php on line 57
+[2025-05-31 14:00:03][INFO]: User 'fauzan' berhasil login
+[2025-05-31 14:03:29][ERROR]: Percobaan signup gagal: CSRF token tidak valid
+[2025-05-31 14:03:39][ERROR]: Signup gagal: email 'mfauzandwiputera17@gmail.com' sudah digunakan
+[2025-05-31 14:03:39][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 3
+[2025-05-31 14:03:39][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 4
+[2025-05-31 14:03:39][ERROR]: PHP Error [2]: session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 6
+[2025-05-31 14:03:39][ERROR]: PHP Error [8]: session_start(): Ignoring session_start() because a session is already active (started from C:\laragon\www\tubes_kpl\includes\signup.inc.php on line 2) in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 14
+[2025-05-31 14:03:55][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 3
+[2025-05-31 14:03:55][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 4
+[2025-05-31 14:03:55][ERROR]: PHP Error [2]: session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 6
+[2025-05-31 14:03:55][ERROR]: PHP Error [8]: session_start(): Ignoring session_start() because a session is already active (started from C:\laragon\www\tubes_kpl\includes\signup.inc.php on line 2) in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 14
+[2025-05-31 14:03:55][INFO]: User 'dwi' berhasil melakukan signup dengan email 'mfauzandwiputera10@gmail.com'[2025-05-31 14:05:57][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 3
+[2025-05-31 14:05:57][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 4
+[2025-05-31 14:05:57][ERROR]: PHP Error [2]: session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 6
+[2025-05-31 14:05:57][ERROR]: PHP Error [8]: session_start(): Ignoring session_start() because a session is already active (started from C:\laragon\www\tubes_kpl\includes\login.inc.php on line 2) in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 14
+[2025-05-31 14:05:57][ERROR]: PHP Error [2]: session_id(): Session ID cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\login.inc.php on line 57
+[2025-05-31 14:05:57][INFO]: User 'fauzan' berhasil login
+[2025-05-31 14:06:07][ERROR]: Percobaan logout gagal: CSRF token tidak valid
+[2025-05-31 14:06:18][ERROR]: Percobaan logout gagal: CSRF token tidak valid
+[2025-05-31 14:06:21][ERROR]: Percobaan logout gagal: CSRF token tidak valid
+[2025-05-31 14:06:31][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 3
+[2025-05-31 14:06:31][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 4
+[2025-05-31 14:06:31][ERROR]: PHP Error [2]: session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 6
+[2025-05-31 14:06:31][ERROR]: PHP Error [8]: session_start(): Ignoring session_start() because a session is already active (started from C:\laragon\www\tubes_kpl\includes\login.inc.php on line 2) in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 14
+[2025-05-31 14:06:31][ERROR]: PHP Error [2]: session_id(): Session ID cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\login.inc.php on line 57
+[2025-05-31 14:06:31][INFO]: User 'fauzan' berhasil login
+[2025-05-31 14:06:32][INFO]: User 'fauzan' berhasil logout
+[2025-05-31 14:18:37][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 3
+[2025-05-31 14:18:37][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 4
+[2025-05-31 14:18:37][ERROR]: PHP Error [2]: session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 6
+[2025-05-31 14:18:37][ERROR]: PHP Error [8]: session_start(): Ignoring session_start() because a session is already active (started from C:\laragon\www\tubes_kpl\includes\login.inc.php on line 2) in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 14
+[2025-05-31 14:18:37][ERROR]: PHP Error [2]: session_id(): Session ID cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\login.inc.php on line 57
+[2025-05-31 14:18:37][INFO]: User 'fauzan' berhasil login
+[2025-05-31 14:18:41][INFO]: User 'fauzan' berhasil logout
+[2025-05-31 14:18:58][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 3
+[2025-05-31 14:18:58][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 4
+[2025-05-31 14:18:58][ERROR]: PHP Error [2]: session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 6
+[2025-05-31 14:18:58][ERROR]: PHP Error [8]: session_start(): Ignoring session_start() because a session is already active (started from C:\laragon\www\tubes_kpl\includes\signup.inc.php on line 2) in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 14
+[2025-05-31 14:18:58][INFO]: User 'asep' berhasil melakukan signup dengan email 'mfauzandwiputera20@gmail.com'
+[2025-05-31 14:19:18][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 3
+[2025-05-31 14:19:18][ERROR]: PHP Error [2]: ini_set(): Session ini settings cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 4
+[2025-05-31 14:19:18][ERROR]: PHP Error [2]: session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 6
+[2025-05-31 14:19:18][ERROR]: PHP Error [8]: session_start(): Ignoring session_start() because a session is already active (started from C:\laragon\www\tubes_kpl\includes\login.inc.php on line 2) in C:\laragon\www\tubes_kpl\includes\config_session.inc.php on line 14
+[2025-05-31 14:19:18][ERROR]: PHP Error [2]: session_id(): Session ID cannot be changed when a session is active in C:\laragon\www\tubes_kpl\includes\login.inc.php on line 57
+[2025-05-31 14:19:18][INFO]: User 'fauzan' berhasil login
+[2025-05-31 14:19:25][ERROR]: Gagal menambah komentar: Komentar terlalu pendek (user: fauzan)
+[2025-05-31 14:19:33][INFO]: User 'fauzan' berhasil menambah komentar di artikel ID 17
+[2025-05-31 14:22:21][ERROR]: PHP Error [2]: include_once(includes/log_helper.php): Failed to open stream: No such file or directory in C:\laragon\www\tubes_kpl\artikel\tambah.php on line 36
+[2025-05-31 14:22:21][ERROR]: PHP Error [2]: include_once(): Failed opening 'includes/log_helper.php' for inclusion (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\tubes_kpl\artikel\tambah.php on line 36
+[2025-05-31 14:22:21][ERROR]: PHP Error [2]: Undefined array key "judul" in C:\laragon\www\tubes_kpl\artikel\tambah.php on line 38
+[2025-05-31 14:22:21][INFO]: User 'unknown' menambahkan artikel baru dengan judul ''
+[2025-05-31 14:22:21][ERROR]: User 'unknown' gagal menambahkan artikel karena judul kosong
+[2025-05-31 14:23:45][ERROR]: PHP Error [2]: include_once(includes/log_helper.php): Failed to open stream: No such file or directory in C:\laragon\www\tubes_kpl\artikel\tambah.php on line 36
+[2025-05-31 14:23:45][ERROR]: PHP Error [2]: include_once(): Failed opening 'includes/log_helper.php' for inclusion (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\tubes_kpl\artikel\tambah.php on line 36
+[2025-05-31 14:23:45][ERROR]: PHP Error [2]: Undefined array key "judul" in C:\laragon\www\tubes_kpl\artikel\tambah.php on line 38
+[2025-05-31 14:23:45][INFO]: User 'unknown' menambahkan artikel baru dengan judul ''
+[2025-05-31 14:23:45][ERROR]: User 'unknown' gagal menambahkan artikel karena judul kosong
+[2025-05-31 14:23:46][ERROR]: PHP Error [2]: include_once(includes/log_helper.php): Failed to open stream: No such file or directory in C:\laragon\www\tubes_kpl\artikel\tambah.php on line 36
+[2025-05-31 14:23:46][ERROR]: PHP Error [2]: include_once(): Failed opening 'includes/log_helper.php' for inclusion (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\tubes_kpl\artikel\tambah.php on line 36
+[2025-05-31 14:23:46][ERROR]: PHP Error [2]: Undefined array key "judul" in C:\laragon\www\tubes_kpl\artikel\tambah.php on line 38
+[2025-05-31 14:23:46][INFO]: User 'unknown' menambahkan artikel baru dengan judul ''
+[2025-05-31 14:23:46][ERROR]: User 'unknown' gagal menambahkan artikel karena judul kosong
+[2025-05-31 14:23:54][INFO]: User 'asep' (user_id: 18) berhasil membuat artikel baru dengan judul 'cara makan'
+[2025-05-31 14:25:37][INFO]: User 'usep' (user_id: 18) berhasil mengedit artikel (artikel_id: 20, judul: 'cara makan')

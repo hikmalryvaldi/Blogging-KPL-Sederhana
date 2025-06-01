@@ -30,6 +30,13 @@ if (isset($_GET['id'])) {
 } else {
   die("ID artikel tidak disediakan!");
 }
+
+if (!isset($_SESSION["csrf_token"])) {
+  $_SESSION["csrf_token"] = bin2hex(random_bytes(32)); // Buat token CSRF baru
+}
+
+// Ambil token CSRF untuk digunakan di form
+$csrf_token = $_SESSION["csrf_token"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,6 +100,7 @@ if (isset($_GET['id'])) {
 
         <form action="../includes/add_comment.inc.php" method="post" class="mb-5">
           <input type="hidden" name="article_id" value="<?= $id ?>">
+          <input type="hidden" name="csrf_token" value="<?= $csrf_token; ?>">
 
           <div class="mb-3">
             <?php if (isset($_SESSION["user_id"])): ?>

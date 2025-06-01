@@ -1,6 +1,15 @@
 <?php
 session_start();
 require_once "../includes/function.php";
+
+
+if (empty($_SESSION["csrf_token"])) {
+  $_SESSION["csrf_token"] = bin2hex(random_bytes(32));
+}
+
+$token = $_SESSION["csrf_token"];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,32 +23,38 @@ require_once "../includes/function.php";
 
 <body>
   <?php require_once "../includes/header.inc.php"; ?>
-  <div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <?php if (isset($_SESSION["error"])) {
-                checkSignUpError();
-              } ?>
-              <h3 class="card-title text-center mb-4">REGISTER</h3>
-              <form action="../includes/signup.inc.php" method="post">
-                <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
-                  <input type="text" class="form-control" name="username" placeholder="username">
-                </div>
-                <div class="mb-3">
-                  <label for="pwd" class="form-label">Password</label>
-                  <input type="password" class="form-control" name="pwd" placeholder="password">
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="text" class="form-control" name="email" placeholder="email">
-                </div>
-                <button type="submit" class="btn btn-secondary w-100">Register</button>
-              </form>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+
+        <?php if (isset($_SESSION["error"])) {
+          checkSignUpError();
+        } ?>
+
+        <div class="card">
+          <div class="card-header text-center">
+            <h4>Register</h4>
+          </div>
+          <div class="card-body">
+            <form action="../includes/signup.inc.php" method="post">
+              <input type="hidden" name="csrf_token" value="<?php echo $token; ?>" />
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" placeholder="username">
+              </div>
+              <div class="mb-3">
+                <label for="pwd" class="form-label">Password</label>
+                <input type="password" class="form-control" name="pwd" placeholder="password">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" name="email" placeholder="email">
+              </div>
+              <button type="submit" class="btn btn-white border w-100">Register</button>
+            </form>
+          </div>
+          <div class="card-footer text-center ">
+            <a href="login.php" class="link-secondary link-underline-opacity-0">Login</a>
           </div>
         </div>
       </div>
